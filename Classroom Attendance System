@@ -1,0 +1,45 @@
+/* John Renzel M. Fangon
+/* CC2 1B
+
+import java.util.Scanner;
+
+public class ClassroomAttendanceSystem {
+
+    public static void main(String[] args) {
+        
+        // Create a Scanner object to take input
+        Scanner scanner = new Scanner(System.in);
+
+        // Ask for the total number of students
+        System.out.print("Enter the total number of students: ");
+        int totalStudents = scanner.nextInt();
+
+        // Initialize counters for present and absent students
+        int presentCount = 0;
+        int absentCount = 0;
+
+        // Loop through each student and ask for their attendance
+        for (int i = 1; i <= totalStudents; i++) {
+            // Ask if the student is present or absent
+            System.out.print("Is student " + i + " present? (Y/N): ");
+            char attendance = scanner.next().charAt(0);  // Read the user's input
+            
+            // Check if the input is 'Y' or 'N' and update counts
+            if (attendance == 'Y' || attendance == 'y') {
+                presentCount++;  // Increment present count
+            } else if (attendance == 'N' || attendance == 'n') {
+                absentCount++;   // Increment absent count
+            } else {
+                System.out.println("Invalid input. Please enter 'Y' for present or 'N' for absent.");
+                i--;  // Decrement i to repeat the same student's attendance
+            }
+        }
+
+        // Display the final counts of present and absent students
+        System.out.println("\nTotal present: " + presentCount);
+        System.out.println("Total absent: " + absentCount);
+
+        // Close the scanner
+        scanner.close();
+    }
+}
